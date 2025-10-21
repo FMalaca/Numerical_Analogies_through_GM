@@ -1,7 +1,7 @@
 # Numerical Analogies through GM
 All code supporting the Francisco Malaca Master's Thesis, "Numerical Analogies through Generalized Means".
 
-# Functions for numerical analogy
+## Functions for numerical analogy
 
 **Definition:**
 An analogy in $`p`$ holds between four numbers, $`(a, b, c, d)`$, when
