@@ -1,5 +1,5 @@
 # Numerical Analogies through Generalized Means
-All code supporting the Francisco Malaca Master's Thesis, "Numerical Analogies through Generalized Means".
+All code supporting the Master's Thesis "Numerical Analogies through Generalized Means" by Francisco Malaca.
 
 ## Functions for numerical analogy
 
