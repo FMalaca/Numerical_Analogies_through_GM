@@ -21,7 +21,7 @@ m_p(a, d) = \begin{cases}
         \end{cases}
 ```
 with the exponentiations considering the principal branch of the complex logarithm, 
-which is defined through the principal argument.
+defined through the principal argument.
 
 **Library purpose:**
 The present library computes the analogical powers of a given quadruple of real numbers.
