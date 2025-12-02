@@ -263,15 +263,14 @@ def case_1(a:float, b:float, c:float, d:float):
 
 def case_2_set_choice(a:float, b:float, c:float, d:float):
     '''Gives number u such that m_u(a,d)>m_u(b,c)'''
-    success_flag = True
-
+    
     lower = 1
 
     upper = ceil(log(2) / log(d/c))
     if upper % 2 != 1:
         upper += 1
 
-    return (lower, upper, success_flag)
+    return (lower, upper)
     
     
 def case_2(a:float, b:float, c:float, d:float):
@@ -279,15 +278,14 @@ def case_2(a:float, b:float, c:float, d:float):
 
     if d<c:
         a_even, b_even, c_even, d_even = canonical_form(abs(a),b,c,d)
-        lower_even, upper_even, success_even = case_1_set_choice(a_even,b_even,c_even,d_even)
+        lower_even, upper_even = case_1_set_choice(a_even,b_even,c_even,d_even)
 
-        if success_even:
-            sol += DS(a_even,a_even,b_even,b_even,c_even,c_even,d_even,d_even,'E',lower_even,upper_even)
+        sol += DS(a_even,a_even,b_even,b_even,c_even,c_even,d_even,d_even,'E',lower_even,upper_even)
 
-    elif abs(a)<d and c<d and mean(0,d,1) <= mean(a,c,1):
-        lower_odd, upper_odd, success_odd = case_2_set_choice(b,abs(a),c,d)
-        if success_odd: 
-            sol += DS(b,b,abs(a),abs(a),c,c,d,d,'PO',lower_odd,upper_odd)
+    elif abs(a)<d and c<d and mean(0,0,d,d,1) <= mean(a,a,c,c,1):
+        lower_odd, upper_odd = case_2_set_choice(b,abs(a),c,d)
+        
+        sol += DS(b,b,abs(a),abs(a),c,c,d,d,'PO',lower_odd,upper_odd)
 
     return sol
 
@@ -298,10 +296,9 @@ def case_3(a:float, b:float, c:float, d:float):
 
     if c<abs(a):
         a_even, b_even, c_even, d_even = canonical_form(abs(a),b,c,d)
-        lower_even, upper_even, success_even = case_1_set_choice(a_even,b_even,c_even,d_even)
+        lower_even, upper_even = case_1_set_choice(a_even,b_even,c_even,d_even)
 
-        if success_even:
-            sol += DS(a_even,a_even,b_even,b_even,c_even,c_even,d_even,d_even,'E',lower_even,upper_even)
+        sol += DS(a_even,a_even,b_even,b_even,c_even,c_even,d_even,d_even,'E',lower_even,upper_even)
 
     return sol
 
@@ -402,3 +399,4 @@ if __name__ == "__main__":
     d = 4
     result = alg(a, b, c, d)
     print(f"{a}:{b}::^p{c}:{d} for p in {set(result)} ")
+
