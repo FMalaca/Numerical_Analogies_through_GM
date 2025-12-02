@@ -398,5 +398,6 @@ if __name__ == "__main__":
     c = 3
     d = 4
     result = alg(a, b, c, d)
-    print(f"{a}:{b}::^p{c}:{d} for p in {set(result)} ")
+    print(f"{a}:{b} ::^p {c}:{d} for p in {set(result)} ")
+
 
